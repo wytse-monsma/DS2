@@ -1,0 +1,19 @@
+# Give a query that lists all persons in the family of “Beatrix of Netherlands //”, i.e., her husband as well
+# as her children. The list should contain four persons: “Claus von Amsberg”, “Constantine”, “John
+# Friso”, and “William Alexander”.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT ?name
+WHERE
+ {  
+    ?q a:name "Beatrix of_Netherlands //" .
+    ?q a:spouseIn ?f.
+    { ?children a:childIn ?f.
+    ?children a:name ?name . }
+    UNION
+    { ?spouse a:spouseIn ?f .
+    ?spouse a:name ?name . }
+ }
+

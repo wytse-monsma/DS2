@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT ?n ?npar
+WHERE
+ { ?i rdf:type a:Individual .
+   ?i a:name ?n .
+	?i a:childIn ?fam .
+	?par a:spouseIn ?fam .
+	?par a:name ?npar
+	FILTER ( regex ( str(?n), "Beatrix") )
+ }
+

@@ -1,0 +1,1 @@
+bin/sparql --data=royal92/royal92.nt --query=exercises/5-13a.rq

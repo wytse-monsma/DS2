@@ -1,0 +1,19 @@
+# Give a query that lists all persons (a:Individual) who have “Beatrix” or “Beatrice” in their name, with
+# their title when available in the data. There a 9 persons who are called “Beatrix” or “Beatrice”, but
+# one of them is present with and without title, so you could get her twice
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT DISTINCT ?name ?title
+WHERE
+ {  
+    ?i rdf:type a:Individual .
+    OPTIONAL {?i a:title ?title} .
+    {?i a:name ?name .
+	  FILTER contains(?name, "Beatrix") }
+    UNION
+    {?i a:name ?name .
+    FILTER contains(?name, "Beatrice") }
+ }
+

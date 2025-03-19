@@ -1,0 +1,15 @@
+# Give a query that shows the name of the husband of “Beatrix of Netherlands //”. The answer should
+# be “Claus /von Amsberg/”.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT ?name
+WHERE
+ { ?q a:name "Beatrix of_Netherlands //" .
+   ?q a:spouseIn ?f .
+   ?member a:spouseIn ?f .
+   ?member a:name ?name .
+   ?member a:sex "M" .
+ }
+

@@ -1,0 +1,14 @@
+# Expand the query of the previous assignment in such a way that it only lists places in The Netherlands
+# (i.e., that contain the word “Netherlands”). There are three places in the Netherlands: Amsterdam,
+# Haus Doorn, The Hague.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT DISTINCT ?place
+WHERE
+ { ?m rdf:type a:Marriage .
+   ?m a:place ?place .
+	 FILTER contains(?place, "Netherlands")
+ }
+

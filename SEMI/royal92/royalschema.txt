@@ -1,0 +1,25 @@
+------------------------------------------
+| t            | p          | vt         |
+==========================================
+| a:Birth      | a:date     |            |
+| a:Birth      | a:place    |            |
+| a:Birth      | rdf:type   |            |
+| a:Death      | a:date     |            |
+| a:Death      | a:place    |            |
+| a:Death      | rdf:type   |            |
+| a:Divorce    | rdf:type   |            |
+| a:Family     | a:divorce  | a:Divorce  |
+| a:Family     | a:marriage | a:Marriage |
+| a:Family     | rdf:type   |            |
+| a:Individual | a:birth    | a:Birth    |
+| a:Individual | a:childIn  | a:Family   |
+| a:Individual | a:death    | a:Death    |
+| a:Individual | a:name     |            |
+| a:Individual | a:sex      |            |
+| a:Individual | a:spouseIn | a:Family   |
+| a:Individual | a:title    |            |
+| a:Individual | rdf:type   |            |
+| a:Marriage   | a:date     |            |
+| a:Marriage   | a:place    |            |
+| a:Marriage   | rdf:type   |            |
+------------------------------------------

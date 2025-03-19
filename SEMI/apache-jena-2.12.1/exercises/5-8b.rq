@@ -1,0 +1,12 @@
+# Give a query that shows all places (a:place) where once a royal marriage (a:Marriage) has taken place.
+# It is quite a list (I haven’t counted them) starting with “Paris,France” and “Amsterdam,Netherlands”.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT DISTINCT ?place
+WHERE
+ { ?m rdf:type a:Marriage .
+   ?m a:place ?place .
+ }
+

@@ -1,0 +1,13 @@
+# Give a query that show all titles that a woman has ever had. With SELECT DISTINCT you can, just as
+# in SQL, filter out any duplicates in the resulting list. There are 42 unique titles.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT DISTINCT ?title
+WHERE
+ { ?i rdf:type a:Individual .
+   ?i a:sex "F" .
+   ?i a:title ?title .
+ }
+

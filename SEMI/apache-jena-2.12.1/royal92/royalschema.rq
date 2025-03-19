@@ -1,0 +1,10 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+
+SELECT DISTINCT ?t ?p ?vt
+WHERE
+ { ?i rdf:type ?t .
+   ?i ?p ?v .
+	OPTIONAL { ?v rdf:type ?vt }
+ }
+ORDER BY ?t ?p

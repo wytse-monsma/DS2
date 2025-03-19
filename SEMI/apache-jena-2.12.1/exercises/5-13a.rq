@@ -1,0 +1,15 @@
+# Add such a owl:sameAS triple to royal92.owl to link ’our’ Beatrix-object to DBpedia’s (see http://
+# dbpedia.org/resource/Beatrix_of_the_Netherlands). Then, query for all DBpedia properties
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX a: <http://www.daml.org/2001/01/gedcom/gedcom#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?local ?remote ?remote_property ?remote_value
+WHERE {
+   ?q a:name "Beatrix of_Netherlands //" .
+   ?q owl:sameAs ?remote .
+   SERVICE  <http://dbpedia.org/sparql> {
+      ?remote ?remote_property ?remote_value
+   } .
+}
