@@ -1,0 +1,299 @@
+[
+    {
+        "title": "Madama Butterfly - Nationale Opera en Ballettheater van Odessa",
+        "artists": [
+            "The Ukrainian National Ballet of Odessa"
+        ],
+        "short_description_dutch": "Nationaal Opera- en Ballettheater Odessa brengt een moderne versie van deze prachtige opera van Puccini.",
+        "genre": [
+            "Opera",
+            "Zang",
+            "Muziek",
+            "Toneel"
+        ],
+        "price_eur": 42.5,
+        "date": "2025-03-25 19:30:00",
+        "location": "Theater aan het Vrijthof (Maastricht)"
+    },
+    {
+        "title": "Trompettist in Auschwitz",
+        "artists": [
+            "Thomas Cammaert",
+            "Soy Kroon"
+        ],
+        "short_description_dutch": "Een aangrijpend verhaal over twintiger Lex, die dankzij zijn trompet Auschwitz weet te overleven",
+        "genre": [
+            "Toneel"
+        ],
+        "price_eur": 25.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "Theater Orpheus (Apeldoorn)"
+    },
+    {
+        "title": "Lale G\u00fcl - Ik ben vrij",
+        "artists": [
+            "Lale G\u00fcl"
+        ],
+        "short_description_dutch": "Schrijfster Lale G\u00fcl wordt ge\u00efnterviewd over haar leven als afvallige.",
+        "genre": [
+            "College"
+        ],
+        "price_eur": 21.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "Stadsschouwburg Nijmegen "
+    },
+    {
+        "title": "You Should Be Dancing",
+        "artists": [
+            "Bee Gees Forever"
+        ],
+        "short_description_dutch": "De winnaars van The Tribute - Battle of the Bands laten de Bee Gees herleven!",
+        "genre": [
+            "Muziek",
+            "Tribute"
+        ],
+        "price_eur": 39.5,
+        "date": "2025-03-25 20:00:00",
+        "location": "Schouwburg Cuijk"
+    },
+    {
+        "title": "Noodzakelijk kwaad",
+        "artists": [
+            "Ren\u00e9 van Meurs"
+        ],
+        "short_description_dutch": "\"Maar hoe gaat het nou \u00e9cht met je?\" Ren\u00e9 van Meurs beantwoordt (of ontwijkt?) deze vraag met de nodige dosis humor",
+        "genre": [
+            "Cabaret"
+        ],
+        "price_eur": 24.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "Schouwburg Amstelveen "
+    },
+    {
+        "title": "Dat zie je een ander niet doen",
+        "artists": [
+            "Bert Visscher"
+        ],
+        "short_description_dutch": "Bert Visscher vult zijn show met 'gouwe ouwes' en hilarisch nieuw materiaal.",
+        "genre": [
+            "Cabaret"
+        ],
+        "price_eur": 35.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "De Kring (Roosendaal)"
+    },
+    {
+        "title": "Feste - Familie Fl\u00f6z",
+        "artists": [
+            "Familie Fl\u00f6z"
+        ],
+        "short_description_dutch": "Maak je klaar voor een po\u00ebtisch maskertheater!",
+        "genre": [
+            "Toneel",
+            "Komedie"
+        ],
+        "price_eur": 18.75,
+        "date": "2025-03-25 20:00:00",
+        "location": "De Goudse Schouwburg (Gouda)"
+    },
+    {
+        "title": "ICOON",
+        "artists": [
+            "Introdans"
+        ],
+        "short_description_dutch": "Introdans vertolkt de meest prachtige stukken van de legendarische danseres Lucinda Childs.",
+        "genre": [
+            "Dans",
+            "Muziek",
+            "Klassieke concerten"
+        ],
+        "price_eur": 23.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "Theater aan de Parade (Den Bosch)"
+    },
+    {
+        "title": "Bomba Pop",
+        "artists": [
+            "Amsterdam Klezmer Band"
+        ],
+        "short_description_dutch": "Verwacht het onverwachte: Amsterdam Klezmer Band gaat uit hun dak!",
+        "genre": [
+            "Muziek"
+        ],
+        "price_eur": 25.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "VU Griffioen (Amsterdam)"
+    },
+    {
+        "title": "Niks nieuws",
+        "artists": [
+            "Laura van Dolron"
+        ],
+        "short_description_dutch": "Laura van Dolron duikt in de wondere wereld van het recyclen. Vanavond zie je dus niks nieuws!",
+        "genre": [
+            "Cabaret",
+            "Komedie"
+        ],
+        "price_eur": 23.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "Theater Kikker (Utrecht)"
+    },
+    {
+        "title": "BV Vastgoed",
+        "artists": [
+            "Ozan Aydogan",
+            "Myrthe Huber",
+            "Rogier in 't Hout",
+            "Wendell Jaspers",
+            "Luka Kluskens",
+            "Toneelgroep Maastricht",
+            "Hanne Arendzen",
+            "Mark Rietman"
+        ],
+        "short_description_dutch": "Toneelgroep Maastricht brengt een Nederlandse vertaling van Pulitzerprijs-winnaar Glengarry Glen Ross.",
+        "genre": [
+            "Toneel",
+            "Komedie"
+        ],
+        "price_eur": 22.0,
+        "date": "2025-03-25 20:00:00",
+        "location": "Stadsschouwburg Utrecht "
+    },
+    {
+        "title": "Hoezo Bach?!",
+        "artists": [
+            "Noraly Beyer",
+            "Marnix Dorrestein",
+            "Xander Vrienten",
+            "Esther Apituley"
+        ],
+        "short_description_dutch": "Musiceren, interviewen en een mix van culturen: tijdens deze muzikale avond zit je op het puntje van je stoel.",
+        "genre": [
+            "Muziek",
+            "Klassieke concerten"
+        ],
+        "price_eur": 21.5,
+        "date": "2025-03-25 20:00:00",
+        "location": "Theater Aan de Slinger (Houten)"
+    },
+    {
+        "title": "HULDE!",
+        "artists": [
+            "Bert Luppes",
+            "Carine Crutzen"
+        ],
+        "short_description_dutch": "Een toneeltrip down memory lane vol hoogte- en dieptepunten van een hoogbejaard stel",
+        "genre": [
+            "Toneel"
+        ],
+        "price_eur": 25.0,
+        "date": "2025-03-25 20:15:00",
+        "location": "Theater De Bussel (Oosterhout)"
+    },
+    {
+        "title": "Cyrano - Bos Theaterproducties",
+        "artists": [
+            "Daan Karstens",
+            "Keanu Visscher",
+            "Rein Hofman",
+            "Inonge Jante Stekelenburg",
+            "Julie-Anne Sikkens",
+            "Sem Konijn",
+            "Finn Poncin",
+            "Shelley Bos",
+            "Rian Gerritsen",
+            "Jeroen Spitzenberger"
+        ],
+        "short_description_dutch": "Een muzikale komedie, zo scherp als een sabel!",
+        "genre": [
+            "Musical",
+            "Toneel",
+            "Komedie"
+        ],
+        "price_eur": 32.0,
+        "date": "2025-03-25 20:15:00",
+        "location": "Castellum Theater & Bioscoop\u00a0(Alphen aan den Rijn)"
+    },
+    {
+        "title": "American Heroes",
+        "artists": [
+            "Rob Crosby"
+        ],
+        "short_description_dutch": "Een muzikale reis langs het allerbeste uit de Verenigde Staten.",
+        "genre": [
+            "Muziek",
+            "Tribute"
+        ],
+        "price_eur": 25.5,
+        "date": "2025-03-25 20:15:00",
+        "location": "Theater de Stoep (Spijkenisse)"
+    },
+    {
+        "title": "S\u2019DANS in Theater aan de Schie",
+        "artists": [
+            "Magnezy Dance Productions"
+        ],
+        "short_description_dutch": "Ontdek de bijzondere wereld van dans in Theater aan de Schie.",
+        "genre": [
+            "Dans"
+        ],
+        "price_eur": 12.5,
+        "date": "2025-03-25 20:15:00",
+        "location": "Wennekerpand"
+    },
+    {
+        "title": "Weerlicht",
+        "artists": [
+            "Rob Scheepers"
+        ],
+        "short_description_dutch": "Cabaretier Rob Scheepers focust niet langer op de angst en het donker, maar richt zich op het licht.",
+        "genre": [
+            "Cabaret"
+        ],
+        "price_eur": 12.5,
+        "date": "2025-03-25 20:15:00",
+        "location": "Theater De Lievekamp (Oss)"
+    },
+    {
+        "title": "Sur(Render)",
+        "artists": [
+            "Alida Dors"
+        ],
+        "short_description_dutch": "Met dit nieuwe werk probeert theatermaker en choreograaf Alida Dors een nieuw gevoel van 'wij' te cre\u00ebren.",
+        "genre": [
+            "Dans",
+            "Toneel",
+            "Muziek"
+        ],
+        "price_eur": 18.0,
+        "date": "2025-03-25 20:15:00",
+        "location": "Schouwburg Concertzaal Tilburg "
+    },
+    {
+        "title": "De verlichting nabij",
+        "artists": [
+            "Piet van Eeghen"
+        ],
+        "short_description_dutch": "De debuutvoorstelling van Piet van Eeghen, winnaar van de publiekprijs op het Leids Cabaret Festival 2022.",
+        "genre": [
+            "Cabaret"
+        ],
+        "price_eur": 19.5,
+        "date": "2025-03-25 20:15:00",
+        "location": "Markant Theater Maashorst (Uden)"
+    },
+    {
+        "title": "De kunst in kunstmatige intelligentie zien",
+        "artists": [
+            "Diederik Jekel"
+        ],
+        "short_description_dutch": "Kunstmatige intelligentie, we kunnen niet meer zonder. Maar hoe moeten we m\u00e9t KI leven? Diederik Jekel legt het uit.",
+        "genre": [
+            "Familie",
+            "College"
+        ],
+        "price_eur": 15.5,
+        "date": "2025-03-25 20:15:00",
+        "location": "Leidse Schouwburg (Leiden)"
+    }
+]
