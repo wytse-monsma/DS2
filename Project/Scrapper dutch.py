@@ -62,8 +62,9 @@ def extract_show_info(soup):
     # Location
     location = soup.select_one('[itemprop="location"] meta[itemprop="name"]')["content"]
 
+
     # Output dictionary
-    return {
+    result =  {
         "title": title,
         "artists": artists,
         "short_description_dutch": short_description,
@@ -73,7 +74,12 @@ def extract_show_info(soup):
         "location": location
     }
 
+    # Remove illegal characters
+    for key, value in result.items():
+        if isinstance(value, str) and '"' in value:
+            result[key] = value.replace('"', "'")
     
+    return result    
 
 if __name__ == '__main__':
     i = 0
@@ -105,7 +111,7 @@ if __name__ == '__main__':
         print(all_shows)
 
 
-        s = json.dumps(all_shows)
+        s = json.dumps(all_shows).encode('utf-8').decode('unicode_escape') # Fix encoding issue
         with open(json_path, 'w') as f:
             f.write(s)
 
