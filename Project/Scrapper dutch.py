@@ -44,7 +44,7 @@ def extract_show_info(soup):
     title = soup.find("meta", itemprop="name")["content"].strip()
 
     # Artists (could be more than one performer blocks)
-    artists = [tag["content"] for tag in soup.find(itemprop="performer").find_all("meta", itemprop="name")]
+    artists = [tag["content"].strip() for tag in soup.find(itemprop="performer").find_all("meta", itemprop="name")]
 
     # Description
     short_description = soup.select_one(".show__description p:nth-of-type(2)").text.strip()
@@ -53,14 +53,14 @@ def extract_show_info(soup):
     genre_price_text = soup.select_one(".show__description .grayed").text
     genre_part, price_part = genre_price_text.split(" - €")
     genres = [g.strip() for g in genre_part.split(",")]
-    price = float(price_part.replace(",", "."))
+    price = float(price_part.replace(",", ".").replace(".-", ".0"))
 
     # Date and time
     # date = datetime.strptime(soup.select_one('[itemprop="startDate"]')["content"], "%Y-%m-%d %H:%M:%S")
-    date = soup.select_one('[itemprop="startDate"]')["content"]
+    date = soup.select_one('[itemprop="startDate"]')["content"].strip()
 
     # Location
-    location = soup.select_one('[itemprop="location"] meta[itemprop="name"]')["content"]
+    location = soup.select_one('[itemprop="location"] meta[itemprop="name"]')["content"].strip()
 
 
     # Output dictionary
@@ -83,8 +83,7 @@ def extract_show_info(soup):
 
 if __name__ == '__main__':
     i = 0
-    json_path = os.path.join(os.path.dirname(sys.argv[0]), "shows.json")
-    # all_shows = json.load(open(json_path))
+    skipped = 0
     all_shows = []
     while True:
         print(f"Fetching shows {i} - {i + 10}")
@@ -103,18 +102,19 @@ if __name__ == '__main__':
             break
 
         for show in shows:
-            print(show)
-            print(type(show))
-            pprint(extract_show_info(show))
-            all_shows.append(extract_show_info(show))
+            try:
+                show_info = extract_show_info(show)
+                all_shows.append(show_info)
+            except Exception as e:
+                print(f"Failed to extract show info: {e}")
+                skipped += 1
+                continue
         
-        print(all_shows)
-
-
+        # Save every 10 shows, so we don't lose everything if the script crashes
         s = json.dumps(all_shows).encode('utf-8').decode('unicode_escape') # Fix encoding issue
-        with open(json_path, 'w') as f:
+        with open(os.path.join(os.path.dirname(sys.argv[0]), "shows.json"), 'w') as f:
             f.write(s)
 
-        input("Press Enter to continue...")
-
         i += 10
+
+    print(f"Done! Skipped {skipped} shows from a total of {i} shows")
