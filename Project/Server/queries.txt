@@ -1,14 +1,23 @@
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 
-SELECT ?localName ?wikidataURI ?birthDate WHERE {
+SELECT ?localName ?locationName ?wikidataURI ?birthDate WHERE {
   # Local data
   ?localPerson a schema1:Person ;
                schema1:name ?localName ;
                owl:sameAs ?wikidataURI .
-  
+
   # Federated query to Wikidata
   SERVICE <https://query.wikidata.org/sparql> {
     ?wikidataURI wdt:P569 ?birthDate .      # Date of birth
+?wikidataURI wdt:P19 ?birthPlace.
+?birthPlace rdfs:label "Enschede"@nl.
   }
+
+?show a schema1:Event.
+?show schema1:performer ?localPerson.
+?show schema1:location ?location.
+?location schema1:name ?locationName.
+  
+
 }
