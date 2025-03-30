@@ -21,6 +21,11 @@ g.bind("ex", EX)
 g.bind("wd", WD)
 
 for idx, show in enumerate(data):
+    # If show name or theater name is empty, skip
+    if not show['title']:
+        print(f"Skipping show with empty title: {show}")
+        continue
+
     show_uri = URIRef(EX[f"show/show{idx+1}"])
     g.add((show_uri, RDF.type, SCHEMA.Event))
     g.add((show_uri, SCHEMA.name, Literal(show['title'])))
@@ -38,19 +43,26 @@ for idx, show in enumerate(data):
         theater_name = show['location'].strip()
         city = None
     
-    theater_id = theater_name.replace(" ", "_")
-    theater_uri = URIRef(EX[f"venue/{theater_id}"])
-    g.add((theater_uri, RDF.type, SCHEMA.Place))
-    g.add((theater_uri, SCHEMA.name, Literal(theater_name)))
-    
-    if city:
-        g.add((theater_uri, SCHEMA.addressLocality, Literal(city)))
+    # If no theater name, ignore location by show
+    if theater_name:
+        theater_id = theater_name.replace(" ", "_")
+        theater_uri = URIRef(EX[f"venue/{theater_id}"])
+        g.add((theater_uri, RDF.type, SCHEMA.Place))
+        g.add((theater_uri, SCHEMA.name, Literal(theater_name)))
+        
+        if city:
+            g.add((theater_uri, SCHEMA.addressLocality, Literal(city)))
 
-    # Link show to theater
-    g.add((show_uri, SCHEMA.location, theater_uri))
+        # Link show to theater
+        g.add((show_uri, SCHEMA.location, theater_uri))
 
     # Add performers
     for artist in show['artists']:
+        # Skip if artist name is empty
+        if not artist:
+            print(f"Skipping show with empty artist name: {show}")
+            continue
+
         artist_uri = URIRef(EX[f"artist/{quote(artist.replace(' ', '_'))}"])
         g.add((artist_uri, RDF.type, SCHEMA.Person))
         g.add((artist_uri, SCHEMA.name, Literal(artist)))
@@ -62,3 +74,4 @@ for idx, show in enumerate(data):
 
 # Save the graph to a ttl file
 output_file = os.path.join(os.path.dirname(sys.argv[0]), "shows.ttl")
+g.serialize(destination=output_file, format="turtle")
