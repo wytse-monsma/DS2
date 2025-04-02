@@ -1,1 +1,0 @@
-See apache-jena-2.12.1/exercises
