@@ -10,10 +10,22 @@
 
 <body class="bg-gray-100">
   <div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold text-center mb-4">SPARQL Query Interface</h1>
+    <h1 class="text-3xl font-bold text-center mb-4">SPARQL Query Interface - Group 84 - DS 2025</h1>
     <div class="bg-white p-6 rounded shadow-md">
-      <textarea id="sparqlQuery" class="w-full p-2 border rounded mb-4" rows="20"
-        placeholder="Enter your SPARQL query here"></textarea>
+      <textarea id="sparqlQuery" class="w-full p-2 border rounded mb-4" rows="20" placeholder="Enter your SPARQL query here">
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?localName ?wikidataURI ?birthDate WHERE {
+  ?localPerson a schema1:Person ;
+    schema1:name ?localName ;
+    owl:sameAs ?wikidataURI .
+  
+  SERVICE <https://query.wikidata.org/sparql> {
+    ?wikidataURI wdt:P569 ?birthDate . # Date of birth
+  }
+}
+LIMIT 10</textarea>
       <button id="submitQuery" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         Submit Query
       </button>
