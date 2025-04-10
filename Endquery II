@@ -1,0 +1,47 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?school_name (COUNT(?award) as ?awards) WHERE {
+
+    ?artist a schema1:Person .
+    ?artist owl:sameAs ?wikidata_artist .
+
+    SERVICE <https://query.wikidata.org/sparql> {
+        ?wikidata_artist wdt:P166 ?award .
+        ?wikidata_artist wdt:P69 ?school .
+        ?school rdfs:label ?school_name .
+        FILTER (lang(?school_name) = "nl")
+    }
+}
+GROUP BY ?school_name
+ORDER BY DESC(?awards)
+
+{'awards': '14', 'school_name': 'Utrechts Conservatorium'}
+{'awards': '11', 'school_name': 'Universiteit van Amsterdam'}
+{'awards': '7', 'school_name': 'Gnessin Staats Academie voor Muziek'}
+{'awards': '7', 'school_name': 'Conservatorium van Praag'}
+{'awards': '7', 'school_name': 'Royal Ballet School'}
+{'awards': '6', 'school_name': 'Akademie voor Kleinkunst'}
+{'awards': '6', 'school_name': 'Performing Arts Research and Training Studios'}
+{'awards': '4', 'school_name': 'Tilburg University'}
+{'awards': '4', 'school_name': 'Conservatoire national supérieur de musique et de danse de Paris'}
+{'awards': '3', 'school_name': 'Universiteit Utrecht'}
+{'awards': '3', 'school_name': 'Gerrit Rietveld Academie'}
+{'awards': '3', 'school_name': 'Stedelijk Gymnasium Leiden'}
+{'awards': '3', 'school_name': 'Toneelacademie Maastricht'}
+{'awards': '2', 'school_name': 'Hogeschool voor de Kunsten Utrecht'}
+{'awards': '2', 'school_name': 'Guildhall School of Music and Drama'}
+{'awards': '2', 'school_name': 'Universiteit van Tel Aviv'}
+{'awards': '1', 'school_name': 'Koningstheateracademie'}
+{'awards': '1', 'school_name': 'Rijksuniversiteit Groningen'}
+{'awards': '1', 'school_name': 'Juilliard School'}
+{'awards': '1', 'school_name': 'New York-universiteit'}
+{'awards': '1', 'school_name': 'Vrije Universiteit Amsterdam'}
+{'awards': '1', 'school_name': 'Fontys Academy of the Arts'}
+{'awards': '1', 'school_name': 'Evangelische Hogeschool'}
+{'awards': '1', 'school_name': 'Herman Brood Academie'}
+{'awards': '1', 'school_name': 'Scholengemeenschap Tabor'}
+{'awards': '1', 'school_name': 'voortgezetonderwijsinstelling'}
+{'awards': '1', 'school_name': 'Universiteit Twente'}
+{'awards': '1', 'school_name': 'Erasmus Universiteit Rotterdam'}
+{'awards': '1', 'school_name': 'Montessori Lyceum Amsterdam'}

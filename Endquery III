@@ -1,0 +1,30 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?province_name (COUNT(?show) as ?shows) WHERE {
+
+    ?artist a schema1:Person .
+    ?artist owl:sameAs ?wikidata_artist .
+
+    SERVICE <https://query.wikidata.org/sparql> {
+        ?wikidata_artist wdt:P19 ?birth_city .
+        ?birth_city wdt:P131 ?birth_province .
+        ?birth_province wdt:P31 wd:Q134390 .
+        ?birth_province rdfs:label ?province_name .
+        FILTER (lang(?province_name) = "nl")
+    }
+
+    ?show a schema1:Event .
+    ?show schema1:performer ?artist .
+    ?show schema1:genre "Cabaret" .
+}
+GROUP BY ?birth_province
+ORDER BY DESC(?shows)
+
+{'province_name': 'Zuid-Holland', 'shows': '75'}
+{'province_name': 'Noord-Holland', 'shows': '49'}
+{'province_name': 'Noord-Brabant', 'shows': '37'}
+{'province_name': 'Utrecht', 'shows': '33'}
+{'province_name': 'Overijssel', 'shows': '7'}
+{'province_name': 'Gelderland', 'shows': '6'}
+{'province_name': 'Drenthe', 'shows': '5'}

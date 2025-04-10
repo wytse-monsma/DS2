@@ -1,0 +1,38 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?province_name (COUNT(?show) as ?shows) WHERE {
+
+    ?venue a schema1:Place .
+    ?venue owl:sameAs ?wikidata_venue .
+
+    SERVICE <https://query.wikidata.org/sparql> {
+        ?wikidata_venue wdt:P276 ?venue .
+        ?venue wdt:P131 ?city .
+        ?city wdt:P131 ?province .
+        ?province rdfs:label ?province_name .
+        FILTER (lang(?province_name) = "nl")
+    }
+
+    ?show a schema1:Event .
+    ?show schema1:location ?venue .
+    ?show schema1:genre "Cabaret" .
+}
+GROUP BY ?province
+ORDER BY DESC(?shows)
+
+{'province_name': 'Utrecht', 'shows': '99'}
+{'province_name': 'Noord-Holland', 'shows': '96'}
+{'province_name': 'Zuid-Holland', 'shows': '96'}
+{'province_name': 'Noord-Brabant', 'shows': '86'}
+{'province_name': 'Gelderland', 'shows': '63'}
+{'province_name': 'Overijssel', 'shows': '42'}
+{'province_name': 'Flevoland', 'shows': '33'}
+{'province_name': 'Limburg', 'shows': '22'}
+{'province_name': 'Friesland', 'shows': '9'}
+{'province_name': 'Groningen', 'shows': '7'}
+{'province_name': 'Leidschendam-Voorburg', 'shows': '5'}
+{'province_name': 'Drenthe', 'shows': '4'}
+{'province_name': 'Nissewaard', 'shows': '4'}
+{'province_name': 'Buren', 'shows': '2'}
+{'province_name': 'Zeeland', 'shows': '2'}

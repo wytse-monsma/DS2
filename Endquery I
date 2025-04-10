@@ -1,0 +1,250 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?venue (COUNT(?award) as ?awards) (COUNT(?artist) as ?artists) (COUNT(DISTINCT ?artist) as ?distinct_artists) WHERE {
+
+    ?artist a schema1:Person .
+    ?artist owl:sameAs ?wikidata_artist .
+
+    SERVICE <https://query.wikidata.org/sparql> {
+        OPTIONAL { ?wikidata_artist wdt:P166 ?award . }
+    }
+
+    ?show a schema1:Event .
+    ?show schema1:performer ?artist .
+    ?show schema1:location ?venue .
+}
+GROUP BY ?venue
+ORDER BY DESC(?awards)
+              
+{'artists': '312', 'awards': '102', 'distinct_artists': '7', 'venue_name': 'AFAS Theater Leusden'}
+{'artists': '199', 'awards': '87', 'distinct_artists': '85', 'venue_name': 'Stadsschouwburg Utrecht'}
+{'artists': '149', 'awards': '80', 'distinct_artists': '7', 'venue_name': 'Stadsschouwburg Antwerpen'}
+{'artists': '560', 'awards': '80', 'distinct_artists': '7', 'venue_name': 'TheaterHangaar'}
+{'artists': '408', 'awards': '69', 'distinct_artists': '38', 'venue_name': 'DeLaMar Theater'}
+{'artists': '75', 'awards': '56', 'distinct_artists': '15', 'venue_name': 'Amare'}
+{'artists': '75', 'awards': '49', 'distinct_artists': '34', 'venue_name': 'Openluchttheater Caprera'}
+{'artists': '46', 'awards': '46', 'distinct_artists': '1', 'venue_name': 'Meerstad'}
+{'artists': '100', 'awards': '44', 'distinct_artists': '31', 'venue_name': 'De Koninklijke Schouwburg'}
+{'artists': '129', 'awards': '44', 'distinct_artists': '47', 'venue_name': 'Wilminktheater'}
+{'artists': '107', 'awards': '43', 'distinct_artists': '68', 'venue_name': 'Schouwburg Amstelveen'}
+{'artists': '104', 'awards': '40', 'distinct_artists': '39', 'venue_name': 'Stadsschouwburg Nijmegen'}
+{'artists': '153', 'awards': '40', 'distinct_artists': '20', 'venue_name': 'Nieuwe Luxor Theater'}
+{'artists': '137', 'awards': '39', 'distinct_artists': '72', 'venue_name': 'TAQA Theater De Vest'}
+{'artists': '84', 'awards': '33', 'distinct_artists': '48', 'venue_name': 'Agnietenhof'}
+{'artists': '83', 'awards': '32', 'distinct_artists': '21', 'venue_name': 'Oude Luxor Theater'}
+{'artists': '132', 'awards': '32', 'distinct_artists': '28', 'venue_name': 'Chassé'}
+{'artists': '53', 'awards': '29', 'distinct_artists': '26', 'venue_name': 'Theater Rotterdam'}
+{'artists': '110', 'awards': '28', 'distinct_artists': '60', 'venue_name': 'Amphion Cultuurbedrijf'}
+{'artists': '91', 'awards': '28', 'distinct_artists': '62', 'venue_name': 'Castellum Theater & Bioscoop'}
+{'artists': '37', 'awards': '27', 'distinct_artists': '10', 'venue_name': 'De Kleine Komedie'}
+{'artists': '84', 'awards': '26', 'distinct_artists': '64', 'venue_name': 'De Goudse Schouwburg'}
+{'artists': '150', 'awards': '26', 'distinct_artists': '37', 'venue_name': 'Theater Orpheus'}
+{'artists': '109', 'awards': '24', 'distinct_artists': '46', 'venue_name': 'Parktheater'}
+{'artists': '42', 'awards': '24', 'distinct_artists': '4', 'venue_name': 'Capitole'}
+{'artists': '42', 'awards': '23', 'distinct_artists': '7', 'venue_name': 'Nationale Opera & Ballet'}
+{'artists': '45', 'awards': '23', 'distinct_artists': '26', 'venue_name': 'Musis'}
+{'artists': '109', 'awards': '22', 'distinct_artists': '36', 'venue_name': 'Theater Heerlen'}
+{'artists': '76', 'awards': '22', 'distinct_artists': '50', 'venue_name': 'Deventer Schouwburg'}
+{'artists': '81', 'awards': '22', 'distinct_artists': '63', 'venue_name': 'Flint'}
+{'artists': '86', 'awards': '21', 'distinct_artists': '63', 'venue_name': 'De Kring'}
+{'artists': '64', 'awards': '21', 'distinct_artists': '47', 'venue_name': 'Leidse Schouwburg'}
+{'artists': '54', 'awards': '21', 'distinct_artists': '36', 'venue_name': 'Kunstlinie'}
+{'artists': '56', 'awards': '20', 'distinct_artists': '41', 'venue_name': 'Schouwburg Kunstmin'}
+{'artists': '69', 'awards': '20', 'distinct_artists': '18', 'venue_name': 'Theater De Spiegel'}
+{'artists': '57', 'awards': '19', 'distinct_artists': '39', 'venue_name': 'Schouwburg Hengelo'}
+{'artists': '71', 'awards': '19', 'distinct_artists': '34', 'venue_name': 'Schouwburg Concertzaal Tilburg'}
+{'artists': '80', 'awards': '18', 'distinct_artists': '47', 'venue_name': 'Theater De Lievekamp'}
+{'artists': '36', 'awards': '18', 'distinct_artists': '25', 'venue_name': 'Theater De Oranjerie'}
+{'artists': '90', 'awards': '18', 'distinct_artists': '33', 'venue_name': 'Theater aan de Parade'}
+{'artists': '63', 'awards': '17', 'distinct_artists': '54', 'venue_name': 'Theater de Leest'}
+{'artists': '72', 'awards': '17', 'distinct_artists': '20', 'venue_name': 'De Harmonie'}
+{'artists': '91', 'awards': '16', 'distinct_artists': '49', 'venue_name': 'Markant Theater Maashorst'}
+{'artists': '53', 'awards': '16', 'distinct_artists': '34', 'venue_name': 'Zaantheater'}
+{'artists': '52', 'awards': '16', 'distinct_artists': '30', 'venue_name': 'Stadstheater Zoetermeer'}
+{'artists': '39', 'awards': '16', 'distinct_artists': '34', 'venue_name': 'Schouwburg Het Park'}
+{'artists': '75', 'awards': '16', 'distinct_artists': '26', 'venue_name': 'De Maaspoort'}
+{'artists': '28', 'awards': '16', 'distinct_artists': '4', 'venue_name': 'Trixxo'}
+{'artists': '88', 'awards': '15', 'distinct_artists': '28', 'venue_name': 'Theater aan het Vrijthof'}
+{'artists': '54', 'awards': '15', 'distinct_artists': '49', 'venue_name': 'De Lawei'}
+{'artists': '26', 'awards': '15', 'distinct_artists': '19', 'venue_name': 'Theater De Bussel'}
+{'artists': '46', 'awards': '15', 'distinct_artists': '33', 'venue_name': 'Agora'}
+{'artists': '116', 'awards': '15', 'distinct_artists': '26', 'venue_name': 'Martiniplaza'}
+{'artists': '28', 'awards': '14', 'distinct_artists': '17', 'venue_name': 'Openluchttheater Valkenburg'}
+{'artists': '50', 'awards': '14', 'distinct_artists': '32', 'venue_name': 'Theater aan het Spui'}
+{'artists': '30', 'awards': '14', 'distinct_artists': '22', 'venue_name': 'Theater De Speeldoos Baarn'}
+{'artists': '25', 'awards': '13', 'distinct_artists': '20', 'venue_name': 'De Kleine Willem'}
+{'artists': '28', 'awards': '13', 'distinct_artists': '21', 'venue_name': 'Theater de Blauwe Kei'}
+{'artists': '18', 'awards': '12', 'distinct_artists': '12', 'venue_name': 'Theater de Veste'}
+{'artists': '21', 'awards': '12', 'distinct_artists': '11', 'venue_name': 'PHIL'}
+{'artists': '16', 'awards': '12', 'distinct_artists': '10', 'venue_name': 'Verkadefabriek'}
+{'artists': '18', 'awards': '12', 'distinct_artists': '12', 'venue_name': 'Junushoff'}
+{'artists': '72', 'awards': '12', 'distinct_artists': '6', 'venue_name': 'Midden Nederland Hallen'}
+{'artists': '37', 'awards': '11', 'distinct_artists': '19', 'venue_name': 'Theater de Stoep'}
+{'artists': '23', 'awards': '11', 'distinct_artists': '18', 'venue_name': 'MIMIK'}
+{'artists': '47', 'awards': '10', 'distinct_artists': '16', 'venue_name': 'Theater aan de Schie'}
+{'artists': '43', 'awards': '10', 'distinct_artists': '21', 'venue_name': 'ATLAS Theater'}
+{'artists': '24', 'awards': '10', 'distinct_artists': '16', 'venue_name': 'Scheldetheater'}
+{'artists': '26', 'awards': '9', 'distinct_artists': '21', 'venue_name': 'Posthuis Theater'}
+{'artists': '35', 'awards': '9', 'distinct_artists': '29', 'venue_name': 'Rabo Theater De Meenthe'}
+{'artists': '51', 'awards': '9', 'distinct_artists': '26', 'venue_name': 'Stadsschouwburg Haarlem'}
+{'artists': '15', 'awards': '8', 'distinct_artists': '11', 'venue_name': 'Stadstheater De Bond'}
+{'artists': '12', 'awards': '8', 'distinct_artists': '9', 'venue_name': 'Theater Geert Teis'}
+{'artists': '12', 'awards': '8', 'distinct_artists': '7', 'venue_name': 'Lindenberg'}
+{'artists': '17', 'awards': '8', 'distinct_artists': '14', 'venue_name': 'Schouwburg Odeon'}
+{'artists': '26', 'awards': '8', 'distinct_artists': '24', 'venue_name': 'Het Speelhuis'}
+{'artists': '27', 'awards': '8', 'distinct_artists': '24', 'venue_name': 'Isala Theater'}
+{'artists': '17', 'awards': '8', 'distinct_artists': '13', 'venue_name': 'Theater de Purmaryn'}
+{'artists': '31', 'awards': '7', 'distinct_artists': '30', 'venue_name': 'Schouwburg Cuijk'}
+{'artists': '17', 'awards': '7', 'distinct_artists': '6', 'venue_name': 'Grote Kerk'}
+{'artists': '17', 'awards': '7', 'distinct_artists': '16', 'venue_name': 'VU Griffioen'}
+{'artists': '16', 'awards': '7', 'distinct_artists': '12', 'venue_name': 'Cpunt Theater'}
+{'artists': '11', 'awards': '7', 'distinct_artists': '9', 'venue_name': 'De Lieve Vrouw'}
+{'artists': '15', 'awards': '7', 'distinct_artists': '12', 'venue_name': 'HOFtheater'}
+{'artists': '46', 'awards': '7', 'distinct_artists': '27', 'venue_name': 'Theater de Kampanje'}
+{'artists': '18', 'awards': '6', 'distinct_artists': '15', 'venue_name': 'De Voorveghter'}
+{'artists': '11', 'awards': '6', 'distinct_artists': '8', 'venue_name': 'Theater Ins Blau'}
+{'artists': '7', 'awards': '6', 'distinct_artists': '2', 'venue_name': 'PERRON-3'}
+{'artists': '32', 'awards': '6', 'distinct_artists': '9', 'venue_name': 'Het Concertgebouw'}
+{'artists': '37', 'awards': '6', 'distinct_artists': '8', 'venue_name': 'World Forum'}
+{'artists': '17', 'awards': '6', 'distinct_artists': '13', 'venue_name': 'Stadsschouwburg Groningen'}
+{'artists': '7', 'awards': '6', 'distinct_artists': '3', 'venue_name': 'De Oosterpoort'}
+{'artists': '26', 'awards': '6', 'distinct_artists': '14', 'venue_name': 'DE KOM'}
+{'artists': '8', 'awards': '6', 'distinct_artists': '4', 'venue_name': 'De Willem'}
+{'artists': '29', 'awards': '6', 'distinct_artists': '16', 'venue_name': 'DNK'}
+{'artists': '8', 'awards': '5', 'distinct_artists': '5', 'venue_name': 'De Reggehof'}
+{'artists': '10', 'awards': '5', 'distinct_artists': '7', 'venue_name': 'Cultuurkoepel Heiloo'}
+{'artists': '26', 'awards': '5', 'distinct_artists': '24', 'venue_name': 'Theater het Kruispunt'}
+{'artists': '12', 'awards': '5', 'distinct_artists': '10', 'venue_name': 'LUX'}
+{'artists': '11', 'awards': '5', 'distinct_artists': '8', 'venue_name': 'Meervaart'}
+{'artists': '5', 'awards': '5', 'distinct_artists': '2', 'venue_name': 'Podia Heemstede'}
+{'artists': '11', 'awards': '5', 'distinct_artists': '8', 'venue_name': 'Stadsgehoorzaal Vlaardingen'}
+{'artists': '6', 'awards': '5', 'distinct_artists': '3', 'venue_name': 'Cool kunst en cultuur'}
+{'artists': '9', 'awards': '4', 'distinct_artists': '9', 'venue_name': 'De Beun'}
+{'artists': '10', 'awards': '4', 'distinct_artists': '8', 'venue_name': 'De Vereeniging'}
+{'artists': '12', 'awards': '4', 'distinct_artists': '7', 'venue_name': 'ITA - Internationaal Theater Amsterdam'}
+{'artists': '14', 'awards': '4', 'distinct_artists': '14', 'venue_name': 'Hof 88 Almelo'}
+{'artists': '23', 'awards': '4', 'distinct_artists': '22', 'venue_name': 'Schouwburg Middelburg'}
+{'artists': '21', 'awards': '4', 'distinct_artists': '18', 'venue_name': 'Theater Lampegiet'}
+{'artists': '5', 'awards': '4', 'distinct_artists': '2', 'venue_name': 'ECI Cultuurfabriek'}
+{'artists': '8', 'awards': '4', 'distinct_artists': '6', 'venue_name': 'Theater Cultura'}
+{'artists': '4', 'awards': '4', 'distinct_artists': '1', 'venue_name': 'De Roma'}
+{'artists': '6', 'awards': '4', 'distinct_artists': '3', 'venue_name': 'Theater De Hofnar'}
+{'artists': '11', 'awards': '4', 'distinct_artists': '8', 'venue_name': 'De Nobelaer'}
+{'artists': '4', 'awards': '4', 'distinct_artists': '1', 'venue_name': 'WestlandTheater De Naald'}
+{'artists': '7', 'awards': '4', 'distinct_artists': '4', 'venue_name': "Theater 't Voorhuys"}
+{'artists': '4', 'awards': '4', 'distinct_artists': '1', 'venue_name': 'Veluvine'}
+{'artists': '13', 'awards': '4', 'distinct_artists': '4', 'venue_name': 'Stevenskerk'}
+{'artists': '13', 'awards': '4', 'distinct_artists': '4', 'venue_name': 'Laurenskerk'}
+{'artists': '11', 'awards': '3', 'distinct_artists': '10', 'venue_name': 'Stadsgehoorzaal Leiden'}
+{'artists': '14', 'awards': '3', 'distinct_artists': '13', 'venue_name': 'Cultuurhuis De Klinker'}
+{'artists': '4', 'awards': '3', 'distinct_artists': '4', 'venue_name': 'Theater Heerenlogement'}
+{'artists': '8', 'awards': '3', 'distinct_artists': '7', 'venue_name': 'Schouwburg Ogterop'}
+{'artists': '3', 'awards': '3', 'distinct_artists': '1', 'venue_name': 'Theater PePijn'}
+{'artists': '26', 'awards': '3', 'distinct_artists': '15', 'venue_name': 'Toon Hermans Theater'}
+{'artists': '16', 'awards': '3', 'distinct_artists': '13', 'venue_name': 'Theater De Maagd'}
+{'artists': '6', 'awards': '3', 'distinct_artists': '3', 'venue_name': 'Theater Bellevue'}
+{'artists': '5', 'awards': '3', 'distinct_artists': '4', 'venue_name': 'Theater Walhalla'}
+{'artists': '15', 'awards': '3', 'distinct_artists': '14', 'venue_name': 'Munttheater Weert'}
+{'artists': '9', 'awards': '3', 'distinct_artists': '4', 'venue_name': 'Martinikerk'}
+{'artists': '9', 'awards': '3', 'distinct_artists': '4', 'venue_name': 'Jacobikerk'}
+{'artists': '5', 'awards': '2', 'distinct_artists': '4', 'venue_name': 'Myllesweerd'}
+{'artists': '23', 'awards': '2', 'distinct_artists': '20', 'venue_name': 'De Rijswijkse Schouwburg'}
+{'artists': '4', 'awards': '2', 'distinct_artists': '4', 'venue_name': "Theater 't Web"}
+{'artists': '4', 'awards': '2', 'distinct_artists': '3', 'venue_name': 'AFAS Circustheater'}
+{'artists': '3', 'awards': '2', 'distinct_artists': '2', 'venue_name': 'vanBeresteyn'}
+{'artists': '11', 'awards': '2', 'distinct_artists': '11', 'venue_name': 'Kennemer Theater'}
+{'artists': '9', 'awards': '2', 'distinct_artists': '9', 'venue_name': 'Theater De Weijer'}
+{'artists': '5', 'awards': '2', 'distinct_artists': '5', 'venue_name': 'Theater de Mythe'}
+{'artists': '2', 'awards': '2', 'distinct_artists': '2', 'venue_name': 'Podium Mozaïek'}
+{'artists': '3', 'awards': '2', 'distinct_artists': '3', 'venue_name': 'Theater Ludens'}
+{'artists': '13', 'awards': '2', 'distinct_artists': '9', 'venue_name': 'Muziekgebouw Eindhoven'}
+{'artists': '2', 'awards': '2', 'distinct_artists': '2', 'venue_name': 'Hét Postkantoor'}
+{'artists': '2', 'awards': '2', 'distinct_artists': '2', 'venue_name': 'Theater Hanzehof'}
+{'artists': '3', 'awards': '2', 'distinct_artists': '2', 'venue_name': 'Theater Kerkrade'}
+{'artists': '4', 'awards': '2', 'distinct_artists': '3', 'venue_name': 'De Tamboer'}
+{'artists': '4', 'awards': '2', 'distinct_artists': '3', 'venue_name': 'Schaffelaartheater'}
+{'artists': '2', 'awards': '2', 'distinct_artists': '1', 'venue_name': 'Theater Koningshof'}
+{'artists': '2', 'awards': '2', 'distinct_artists': '1', 'venue_name': 'Theater Cascade'}
+{'artists': '2', 'awards': '2', 'distinct_artists': '1', 'venue_name': 'Schouwburg Lochem'}
+{'artists': '5', 'awards': '2', 'distinct_artists': '4', 'venue_name': 'Academiehuis'}
+{'artists': '5', 'awards': '2', 'distinct_artists': '4', 'venue_name': 'Hooglandse Kerk'}
+{'artists': '5', 'awards': '2', 'distinct_artists': '4', 'venue_name': 'Jheronimus Bosch Art Center'}
+{'artists': '5', 'awards': '1', 'distinct_artists': '5', 'venue_name': 'De Skâns Gorredijk'}
+{'artists': '13', 'awards': '1', 'distinct_artists': '13', 'venue_name': 'Theater Zuidplein'}
+{'artists': '2', 'awards': '1', 'distinct_artists': '2', 'venue_name': 'Podium NOORD'}
+{'artists': '2', 'awards': '1', 'distinct_artists': '2', 'venue_name': 'Theater de Omval'}
+{'artists': '3', 'awards': '1', 'distinct_artists': '3', 'venue_name': 'Theater Kikker'}
+{'artists': '3', 'awards': '1', 'distinct_artists': '3', 'venue_name': 'Theater Het Trefpunt'}
+{'artists': '3', 'awards': '1', 'distinct_artists': '3', 'venue_name': 'Cultureel Centrum Den Herd'}
+{'artists': '11', 'awards': '1', 'distinct_artists': '11', 'venue_name': 'Theater Sneek'}
+{'artists': '5', 'awards': '1', 'distinct_artists': '5', 'venue_name': 'Schuur'}
+{'artists': '3', 'awards': '1', 'distinct_artists': '3', 'venue_name': 'Posttheater'}
+{'artists': '1', 'awards': '1', 'distinct_artists': '1', 'venue_name': 'Calypso Theater'}
+{'artists': '1', 'awards': '1', 'distinct_artists': '1', 'venue_name': 'De Grote Kerk'}
+{'artists': '3', 'awards': '1', 'distinct_artists': '3', 'venue_name': 'Schouwburg Venray'}
+{'artists': '5', 'awards': '1', 'distinct_artists': '5', 'venue_name': 'Stadsgehoorzaal Kampen'}
+{'artists': '8', 'awards': '1', 'distinct_artists': '8', 'venue_name': 'De Storm'}
+{'artists': '1', 'awards': '1', 'distinct_artists': '1', 'venue_name': 'BREStheater'}
+{'artists': '1', 'awards': '1', 'distinct_artists': '1', 'venue_name': 'Theater de Kik'}
+{'artists': '1', 'awards': '1', 'distinct_artists': '1', 'venue_name': 'Het Klooster'}
+{'artists': '7', 'awards': '1', 'distinct_artists': '7', 'venue_name': 'De Schalm'}
+{'artists': '1', 'awards': '1', 'distinct_artists': '1', 'venue_name': 'Catharinakerk'}
+{'artists': '5', 'awards': '1', 'distinct_artists': '5', 'venue_name': 'Singer Laren'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'CulturA & Zo'}
+{'artists': '5', 'awards': '0', 'distinct_artists': '5', 'venue_name': 'Theater de Winsinghhof'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'Ledeltheater'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'TOBACCO Theater'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '4', 'venue_name': 'De Gelderlandfabriek'}
+{'artists': '7', 'awards': '0', 'distinct_artists': '7', 'venue_name': 'Muziekcentrum Enschede'}
+{'artists': '5', 'awards': '0', 'distinct_artists': '5', 'venue_name': 'Sint Aegtenkapel'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Zaal 3'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'De Veerensmederij'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Theater De Kaasfabriek'}
+{'artists': '8', 'awards': '0', 'distinct_artists': '4', 'venue_name': 'Theater de Leeuw'}
+{'artists': '3', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Parkgebouw Rijssen'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '4', 'venue_name': 'Beneluxtheater'}
+{'artists': '8', 'awards': '0', 'distinct_artists': '4', 'venue_name': 'Vliegveld Twente'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Fulcotheater'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': "Muziekgebouw aan 't IJ"}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'De Poorterij'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '4', 'venue_name': "'t Mozaïek"}
+{'artists': '3', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Korzo Theater'}
+{'artists': '3', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Spant!'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'Stadscentrum het Parochiehuis'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Kappen'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Amfitheater Het Lommerrijk'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Cultureel Centrum Jan van Besouw'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Theater Twee Hondjes'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Vrijhof Cultuur'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Nieuwe Regentes'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Theater De Krakeling'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'Diligentia Theater'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Podium Hoge Woerd'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Nieuwe Vorst'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Corrosia Theater'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Theater de Machinefabriek'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'ZINiN'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'De Boerderij'}
+{'artists': '26', 'awards': '0', 'distinct_artists': '4', 'venue_name': 'Frascati'}
+{'artists': '3', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Theater Figi'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Theater De Landing'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'Mecc'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'MAINSTAGE Brabanthallen'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'MECC'}
+{'artists': '75', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Theater Vis à Vis'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Doelen'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Molenberg'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Werf'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Westrand'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'CC Mechelen'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Warande'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'De Velinx'}
+{'artists': '2', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'CCHA'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': '30CC'}
+{'artists': '1', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Openluchttheater Mariahout'}
+{'artists': '9', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Capitole Gent'}
+{'artists': '9', 'awards': '0', 'distinct_artists': '3', 'venue_name': 'Trixxo Theater'}
+{'artists': '70', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Rodahal'}
+{'artists': '4', 'awards': '0', 'distinct_artists': '2', 'venue_name': 'De Meerpaal'}
+{'artists': '20', 'awards': '0', 'distinct_artists': '1', 'venue_name': 'Koninklijk Theater Carré'}
